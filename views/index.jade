@@ -1,19 +1,9 @@
 extends layout
 
 block content
-	div.topbar
-		div.fill
-			div.container
-				a.brand(href='#') #{title}
-			ul.nav
-			li.active
-				a(href='#') Home
-			li
-				a(href='#about') About
-			li
-				a(href='#contact') Contact
-		form.pull-right(method="post", id="loginForm")
-		input.input-small(id="username", type="text", name="User", placeholder="Username")
-		input.input-small(id="password", type="password", name="Password", placeholder="Password")
-		input.btn.primary(type="submit", value="Sign In")
-		p#loginPrompt.pull-right.login-prompt
+	.container
+			form.form-signin(action="#", method="post")
+			h2.form-signin-heading Please sign in
+			input.input-block-level(type="text", name="username", placeholder="Email address")
+			input.input-block-level(type="password", name="password", placeholder="Password")
+			button.btn.btn-large.btn-primary(type="submit") Sign in
