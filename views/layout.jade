@@ -6,11 +6,29 @@ html
 				title loginJS
 		block meta
 		link(rel='stylesheet', href='/stylesheets/bootstrap.min.css')
-		link(rel='stylesheet', href='/stylesheets/bootstrap-responsive.min.css')
+		link(rel='stylesheet', href='/stylesheets/style.css')
 		script(src='http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js')
 		script(src='/javascripts/bootstrap.min.js')
+
 	body
 
+nav.navbar.navbar-default.navbar-fixed-top(role='navigation')
+	.container
+		.navbar-header
+			a.navbar-brand(href='https://github.com/Vowow/LoginJS' target='_blank')
+				img.github(src='img/github.png')
+				| NodeLoginJS
+				ul.nav.navbar-nav
+					li.active
+						a(href='#') Home
+					li
+						a(href='#about') About
+					li
+						a(href='#contact') Contact
 
-	block content
 
+
+
+block content
+
+include footer.jade
