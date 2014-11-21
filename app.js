@@ -33,12 +33,21 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', routes);
 app.use('/login', login);
 
+app.get('/logout', function(req, res) {
+  // delete the session variable
+  delete req.session.username;
+  // redirect user to homepage
+  res.redirect('/');
+});
+
+
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
     var err = new Error('Not Found');
     err.status = 404;
     next(err);
 });
+
 
 // error handlers
 
