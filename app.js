@@ -10,6 +10,28 @@ var login = require('./routes/login');
 
 var app = express();
 
+//DB
+var levelup = require('levelup')
+
+// open a data store
+var db = levelup('/tmp/dprk.db')
+
+
+  // a Batch operation made up of 3 Puts
+  db.batch([
+     { type: 'put', key: 'username', value: 'username' },
+     { type: 'put', key: 'password', value: 'password' }
+  ], function (err) {
+
+    // read the whole store as a stream and print each entry to stdout
+    db.createReadStream()
+      .on('data', console.log)
+      .on('close', function () {
+        db.close()
+      })
+  })
+
+
 app.use(session({
   cookie: {
     path    : '/',
